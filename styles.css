@@ -1,39 +1,112 @@
-.dice-heart {
-    display: inline-block;
-    height: 2rem;
-    width: 2rem;
-    margin: 0 10px;
-    top: 0;
-    background-color: hotpink;
-    transform: rotate(-45deg);
-  }
-  
-  .dice-heart:before,
-  .dice-heart:after {
-    content: "";
-    position: absolute;
-    border-radius: 50%;
-    width: 2rem;
-    height: 2rem;
-    background-color: hotpink;
-  }
-  
-  .dice-heart:before {
-    top: -1em;
-    left: 0;
-    z-index: -1;
-  }
-  
-  .dice-heart:after {
-    left: 1em;
-    top: 0;
-    z-index: -1;
-  }
+/* 
+font-family: 'Nunito', sans-serif;
+font-family: 'Open Sans', sans-serif;
+*/
 
-  .roll {
-    position: absolute;
-    width: 2em;
-    font-size: 1.25rem;
-    text-align: center;
-    transform: rotate(45deg);
-  }
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;800&family=Open+Sans:wght@400;700&display=swap");
+
+:root {
+  --purple: #33086a;
+}
+
+h1 {
+  margin-bottom: 0;
+  text-align: center;
+  font-family: "Nunito", sans-serif;
+  font-size: 2rem;
+  font-weight: 800;
+  color: hotpink;
+}
+
+body {
+  margin: 0;
+  background-color: var(--purple);
+  color: hotpink;
+  font-family: "Open Sans", sans-serif;
+}
+
+.character-card {
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.img-container {
+    display: flex;
+    align-items: center;
+    margin: 1em;
+}
+
+.avatar {
+  border-radius: 2em;
+}
+
+.hearts {
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  margin: 1em;
+}
+
+.dice-heart {
+  display: inline-block;
+  height: 2rem;
+  width: 2rem;
+  margin: 0 2em;
+  top: 0;
+  background-color: hotpink;
+  transform: rotate(-45deg);
+}
+
+.dice-heart:before,
+.dice-heart:after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  width: 2rem;
+  height: 2rem;
+  background-color: hotpink;
+}
+
+.dice-heart:before {
+  top: -1em;
+  left: 0;
+  z-index: -1;
+}
+
+.dice-heart:after {
+  left: 1em;
+  top: 0;
+  z-index: -1;
+}
+
+.roll {
+  position: absolute;
+  width: 2em;
+  text-align: center;
+  font-family: "Nunito", sans-serif;
+  font-weight: bold;
+  font-size: 1.25rem;
+  color: var(--purple);
+  transform: rotate(45deg);
+}
+
+.actions {
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.battle-btn {
+    margin-top: 1em;
+    background-color: hotpink;
+    border: none;
+    border-radius: 2em;
+    padding: 0.5em 1em;
+    font-family: "Nunito", sans-serif;
+    color: var(--purple);
+    font-size: 1rem;
+    font-weight: bold;
+}
