@@ -1,0 +1,39 @@
+.dice-heart {
+    display: inline-block;
+    height: 2rem;
+    width: 2rem;
+    margin: 0 10px;
+    top: 0;
+    background-color: hotpink;
+    transform: rotate(-45deg);
+  }
+  
+  .dice-heart:before,
+  .dice-heart:after {
+    content: "";
+    position: absolute;
+    border-radius: 50%;
+    width: 2rem;
+    height: 2rem;
+    background-color: hotpink;
+  }
+  
+  .dice-heart:before {
+    top: -1em;
+    left: 0;
+    z-index: -1;
+  }
+  
+  .dice-heart:after {
+    left: 1em;
+    top: 0;
+    z-index: -1;
+  }
+
+  .roll {
+    position: absolute;
+    width: 2em;
+    font-size: 1.25rem;
+    text-align: center;
+    transform: rotate(45deg);
+  }

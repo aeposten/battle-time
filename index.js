@@ -29,7 +29,7 @@ const { elementId, name, avatar, health, diceCount } = data;
     let diceHTML = "";
 
     for (let i = 0; i < diceCount; i++) {
-      diceHTML += `<div class="dice">${rollD6()}</div>`;
+      diceHTML += `<br><div class="dice-heart"><span class="roll">${rollD6()}</span></div><br>`;
     }
 
     return diceHTML
