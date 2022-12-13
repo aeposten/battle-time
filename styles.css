@@ -9,8 +9,13 @@ font-family: 'Open Sans', sans-serif;
   --purple: #33086a;
 }
 
+* {
+    margin: 0;
+    padding: 0;
+}
+
 h1 {
-  margin-bottom: 0;
+  margin: 0;
   text-align: center;
   font-family: "Nunito", sans-serif;
   font-size: 10vw;
@@ -26,7 +31,6 @@ body {
 }
 
 .character-card {
-  width: 100vw;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -47,7 +51,7 @@ body {
   width: 100vw;
   display: flex;
   justify-content: center;
-  margin: 1em;
+  margin: 1em 0;
 }
 
 .dice-heart {
