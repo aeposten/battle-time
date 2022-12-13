@@ -13,7 +13,7 @@ h1 {
   margin-bottom: 0;
   text-align: center;
   font-family: "Nunito", sans-serif;
-  font-size: 2rem;
+  font-size: 10vw;
   font-weight: 800;
   color: hotpink;
 }
@@ -39,7 +39,7 @@ body {
 }
 
 .avatar {
-  border-radius: 2em;
+  border-radius: 4vw;
   width: 40vw;
 }
 
@@ -52,9 +52,9 @@ body {
 
 .dice-heart {
   display: inline-block;
-  height: 2rem;
-  width: 2rem;
-  margin: 0 2em;
+  height: 6vw;
+  width: 6vw;
+  margin: 3vw 5vw;
   top: 0;
   background-color: hotpink;
   transform: rotate(-45deg);
@@ -65,30 +65,30 @@ body {
   content: "";
   position: absolute;
   border-radius: 50%;
-  width: 2rem;
-  height: 2rem;
+  width: 6vw;
+  height: 6vw;
   background-color: hotpink;
 }
 
 .dice-heart:before {
-  top: -1em;
+  top: -3vw;
   left: 0;
   z-index: -1;
 }
 
 .dice-heart:after {
-  left: 1em;
+  left: 3vw;
   top: 0;
   z-index: -1;
 }
 
 .roll {
   position: absolute;
-  width: 2em;
+  width: 1.5em;
   text-align: center;
   font-family: "Nunito", sans-serif;
   font-weight: bold;
-  font-size: 1.25rem;
+  font-size: 4vw;
   color: var(--purple);
   transform: rotate(45deg);
 }
