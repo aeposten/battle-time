@@ -2,9 +2,12 @@ import characterData from "./data.js";
 import { Character } from "./Character.js";
 
 
+
 document.getElementById('battle-btn').addEventListener("click", battle)
 
 function battle() {
+    helmi.renderDiceHTML();
+    pizzaBoxer.renderDiceHTML();
     render();
 }
 

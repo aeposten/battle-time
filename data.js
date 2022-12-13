@@ -4,6 +4,7 @@ const characterData = {
     avatar: "img/magical-helmi.png",
     health: 60,
     diceCount: 3,
+    currentDiceScore: [],
   },
 
   enemy: {
@@ -11,6 +12,7 @@ const characterData = {
     avatar: "img/pizza-boxer.png",
     health: 10,
     diceCount: 1,
+    currentDiceScore: [],
   },
 };
 

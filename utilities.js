@@ -7,16 +7,16 @@ function renderDiceRolls(diceCount) {
 }
 
 function renderDicePlaceholderHTML(diceCount) {
-    return new Array(diceCount).fill(`<div class="dice-heart"></div>`)
+    return new Array(diceCount).fill(`<div class="dice-heart"></div>`).join('')
 }
 
-function renderDiceHTML(diceCount) {
-  return renderDiceRolls(diceCount)
-    .map(
-      (roll) =>
-        `<div class="dice-heart"><span class="roll">${roll}</span></div>`
-    )
-    .join(" ");
-}
+// function renderDiceHTML(diceCount) {
+//   return renderDiceRolls(diceCount)
+//     .map(
+//       (roll) =>
+//         `<div class="dice-heart"><span class="roll">${roll}</span></div>`
+//     )
+//     .join(" ");
+// }
 
-export { renderDiceRolls, renderDiceHTML, renderDicePlaceholderHTML };
+export { renderDiceRolls, renderDicePlaceholderHTML };

@@ -1,11 +1,23 @@
-import { renderDiceHTML, renderDicePlaceholderHTML } from "./utilities.js";
+import { renderDicePlaceholderHTML, renderDiceRolls } from "./utilities.js";
 
 export function Character(data) {
   Object.assign(this, data);
 
-  this.renderCharacterHtml = () => {
-    const { name, avatar, health, diceCount } = data;
+  this.diceHTML = renderDicePlaceholderHTML(this.diceCount);
 
+  this.renderDiceHTML = () => {
+    this.currentDiceScore = renderDiceRolls(this.diceCount);
+
+    this.diceHTML = this.currentDiceScore
+      .map(
+        (roll) =>
+          `<div class="dice-heart"><span class="roll">${roll}</span></div>`
+      )
+      .join(" ");
+  };
+
+  this.renderCharacterHtml = () => {
+    const { name, avatar, health, diceCount } = this;
     return `<div class="character-card">
                   <h2 class="name"> ${name} </h2>
                   <div class="img-container">
@@ -15,7 +27,7 @@ export function Character(data) {
                   <div class="health">health: <b> ${health} </b></div>
                   <div class="heart-container">
                     <h3>Damage Dice:</h3>
-                    <div class="hearts"> ${renderDicePlaceholderHTML()} </div>
+                    <div class="hearts"> ${this.diceHTML} </div>
                   </div>
               </div>`;
   };
