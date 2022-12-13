@@ -8,6 +8,8 @@ document.getElementById('battle-btn').addEventListener("click", battle)
 function battle() {
     helmi.renderDiceHTML();
     pizzaBoxer.renderDiceHTML();
+    helmi.calculateDamageTaken(pizzaBoxer.currentDiceScore);
+    pizzaBoxer.calculateDamageTaken(helmi.currentDiceScore)
     render();
 }
 

@@ -10,7 +10,7 @@ const characterData = {
   enemy: {
     name: "Pizza Boxer",
     avatar: "img/pizza-boxer.png",
-    health: 10,
+    health: 30,
     diceCount: 1,
     currentDiceScore: [],
   },

@@ -7,13 +7,23 @@ export function Character(data) {
 
   this.renderDiceHTML = () => {
     this.currentDiceScore = renderDiceRolls(this.diceCount);
-
+    console.log(this.currentDiceScore);
     this.diceHTML = this.currentDiceScore
       .map(
         (roll) =>
           `<div class="dice-heart"><span class="roll">${roll}</span></div>`
       )
       .join(" ");
+  };
+
+  this.calculateDamageTaken = (attackScoreArray) => {
+    const damage = attackScoreArray.reduce((total, current) => total + current);
+    
+    this.health -= damage;
+
+    if (this.health < 0) {
+        this.health = 0;
+    }
   };
 
   this.renderCharacterHtml = () => {
