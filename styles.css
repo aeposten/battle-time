@@ -10,12 +10,10 @@ font-family: 'Open Sans', sans-serif;
 }
 
 * {
-    margin: 0;
-    padding: 0;
+  margin: 0;
 }
 
 h1 {
-  margin: 0;
   text-align: center;
   font-family: "Nunito", sans-serif;
   font-size: 10vw;
@@ -24,11 +22,10 @@ h1 {
 }
 
 h2 {
-    font-size: 3vw;
+  font-size: 3vw;
 }
 
 body {
-  margin: 0;
   background-color: var(--purple);
   color: hotpink;
   font-family: "Open Sans", sans-serif;
@@ -41,14 +38,20 @@ body {
 }
 
 .img-container {
-    display: flex;
-    align-items: center;
-    margin: 1em;
+  display: flex;
+  align-items: center;
+  margin: 1em;
 }
 
 .avatar {
   border-radius: 4vw;
   width: 40vw;
+}
+
+.heart-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .hearts {
@@ -90,6 +93,7 @@ body {
   z-index: -1;
 }
 
+
 .roll {
   position: absolute;
   width: 1.5em;
@@ -102,20 +106,20 @@ body {
 }
 
 .actions {
-    width: 100vw;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .battle-btn {
-    margin-top: 1em;
-    background-color: hotpink;
-    border: none;
-    border-radius: 2em;
-    padding: 0.5em 1em;
-    font-family: "Nunito", sans-serif;
-    color: var(--purple);
-    font-size: 1rem;
-    font-weight: bold;
+  margin-top: 1em;
+  background-color: hotpink;
+  border: none;
+  border-radius: 2em;
+  padding: 0.5em 1em;
+  font-family: "Nunito", sans-serif;
+  color: var(--purple);
+  font-size: 1rem;
+  font-weight: bold;
 }

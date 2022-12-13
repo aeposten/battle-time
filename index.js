@@ -1,11 +1,18 @@
 import characterData from "./data.js";
 import { Character } from "./Character.js";
 
+
+document.getElementById('battle-btn').addEventListener("click", battle)
+
+function battle() {
+    render();
+}
+
 function render() {
-  document.getElementById(helmi.elementId).innerHTML =
+  document.getElementById('magical-toddler').innerHTML =
     helmi.renderCharacterHtml();
 
-  document.getElementById(pizzaBoxer.elementId).innerHTML =
+  document.getElementById('enemy').innerHTML =
     pizzaBoxer.renderCharacterHtml();
 }
 
