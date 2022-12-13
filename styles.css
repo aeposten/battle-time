@@ -23,6 +23,10 @@ h1 {
   color: hotpink;
 }
 
+h2 {
+    font-size: 3vw;
+}
+
 body {
   margin: 0;
   background-color: var(--purple);
