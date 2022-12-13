@@ -1,4 +1,4 @@
-const helmi = {
+const hero = {
   elementId: "magical-toddler",
   name: "Helmi",
   avatar: "img/magical-helmi.png",
@@ -15,36 +15,43 @@ const enemy = {
 };
 
 function rollD6() {
-  const d6 = Math.floor(Math.random() * 6 + 1);
-
-  return d6;
+  return Math.floor(Math.random() * 6 + 1);
 }
 
-function renderCharacter(data) {
-  const { elementId, name, avatar, health, diceCount } = data;
-
-  function renderDiceHTML(diceCount) {
-    let diceHTML = "";
-
-    for (let i = 0; i < diceCount; i++) {
-      diceHTML += `<br><div class="dice-heart"><span class="roll">${rollD6()}</span></div>`;
-    }
-
-    return diceHTML;
-  }
-
-  document.getElementById(elementId).innerHTML = `<div class="character-card">
-              <h4 class="name"> ${name} </h4>
-              <div class="img-container">
-                <img class="avatar"  width="200" src="${avatar}" />
-                <img class="milk" src="./img/milk.png" />
-              </div>
-              <div class="health">health: <b> ${health} </b></div>
-              <div class="heart-container">
-                  <div class="hearts"> ${renderDiceHTML(diceCount)} </div>
-              </div>
-          </div>`;
+function renderDiceRolls(diceCount) {
+  return new Array(diceCount).fill().map((roll) => rollD6());
+}
+function renderDiceHTML(diceCount) {
+  return renderDiceRolls(diceCount)
+    .map(
+      (roll) =>
+        `<div class="dice-heart"><span class="roll">${roll}</span></div>`
+    )
+    .join(" ");
 }
 
-renderCharacter(helmi);
-renderCharacter(enemy);
+function Character(data) {
+  Object.assign(this, data);
+
+  this.renderCharacterHtml = () => {
+    const { elementId, name, avatar, health, diceCount } = data;
+
+    document.getElementById(elementId).innerHTML = `<div class="character-card">
+                    <h2 class="name"> ${name} </h2>
+                    <div class="img-container">
+                      <img class="avatar"  src="${avatar}" />
+                      <img class="milk" src="./img/milk.png" />
+                    </div>
+                    <div class="health">health: <b> ${health} </b></div>
+                    <div class="heart-container">
+                        <div class="hearts"> ${renderDiceHTML(diceCount)} </div>
+                    </div>
+                </div>`;
+  };
+}
+
+const helmi = new Character(hero);
+helmi.renderCharacterHtml();
+
+const pizzaBoxer = new Character(enemy);
+pizzaBoxer.renderCharacterHtml();
