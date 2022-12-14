@@ -21,23 +21,24 @@ export function Character(data) {
     
     this.health -= damage;
 
-    if (this.health < 0) {
+    if (this.health <= 0) {
+        this.knockedOut = true;
         this.health = 0;
     }
   };
 
   this.renderCharacterHtml = () => {
-    const { name, avatar, health, diceCount } = this;
+    const { name, avatar, health, diceHTML } = this;
     return `<div class="character-card">
                   <h2 class="name"> ${name} </h2>
                   <div class="img-container">
-                      <img class="avatar"  src="${avatar}" />
+                      <div class="avatar"  style="background-image: url(${avatar})"></div>
                       <img class="milk" src="./img/milk.png" />
                   </div>
                   <div class="health">health: <b> ${health} </b></div>
                   <div class="heart-container">
                     <h3>Damage Dice:</h3>
-                    <div class="hearts"> ${this.diceHTML} </div>
+                    <div class="hearts"> ${diceHTML} </div>
                   </div>
               </div>`;
   };

@@ -22,13 +22,24 @@ h1 {
 }
 
 h2 {
-  font-size: 3vw;
+  font-size: 6vw;
 }
 
 body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   background-color: var(--purple);
   color: hotpink;
   font-family: "Open Sans", sans-serif;
+}
+
+.end-game {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 .character-card {
@@ -46,12 +57,15 @@ body {
 .avatar {
   border-radius: 4vw;
   width: 40vw;
+  height: 40vw;
+  background-size: cover;
+  background-position: center;
 }
 
 .heart-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .hearts {
@@ -93,7 +107,6 @@ body {
   z-index: -1;
 }
 
-
 .roll {
   position: absolute;
   width: 1.5em;
@@ -122,4 +135,8 @@ body {
   color: var(--purple);
   font-size: 1rem;
   font-weight: bold;
+}
+
+.emoji {
+    font-size: 12vw;
 }
