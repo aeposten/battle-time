@@ -1,18 +1,36 @@
 import characterData from "./data.js";
 import { Character } from "./Character.js";
-// import { endGame } from "./utilities.js";
+
+let enemyArray = getEnemyArray();
+
+function getEnemyArray() {
+   const enemies = Object.keys(characterData).slice(1);
+
+   return enemies;
+}
+
+console.log(Object.keys(characterData))
+function getNewEnemy() {
+    const nextEnemyData = characterData[enemyArray.shift()]
+
+    if (nextEnemyData) {
+        return new Character(nextEnemyData)
+    } else {
+        return {}
+    }
+}
 
 document.getElementById("battle-btn").addEventListener("click", battle);
 
 function endGame() {
   const endGameMessage =
-    helmi.health === 0 && pizzaBoxer.health === 0
+    helmi.health === 0 && enemy.health === 0
       ? "All characters knocked out!"
       : helmi.health > 0
       ? "Helmi Wins!"
-      : "Pizza Boxer Wins!";
+      : `${enemy.name} wins!`;
 
-  const endEmoji = helmi.health > 0 ? helmi.emoji : pizzaBoxer.emoji;
+  const endEmoji = helmi.health > 0 ? helmi.emoji : enemy.emoji;
 
   document.body.innerHTML = `
                 <div class="end-game">
@@ -24,12 +42,12 @@ function endGame() {
 
 function battle() {
   helmi.renderDiceHTML();
-  pizzaBoxer.renderDiceHTML();
-  helmi.calculateDamageTaken(pizzaBoxer.currentDiceScore);
-  pizzaBoxer.calculateDamageTaken(helmi.currentDiceScore);
+  enemy.renderDiceHTML();
+  helmi.calculateDamageTaken(enemy.currentDiceScore);
+  enemy.calculateDamageTaken(helmi.currentDiceScore);
   render();
 
-  if (helmi.knockedOut || pizzaBoxer.knockedOut) {
+  if (helmi.knockedOut || enemy.knockedOut) {
     endGame();
   }
 }
@@ -38,11 +56,11 @@ function render() {
   document.getElementById("magical-toddler").innerHTML =
     helmi.renderCharacterHtml();
 
-  document.getElementById("enemy").innerHTML = pizzaBoxer.renderCharacterHtml();
+  document.getElementById("enemy").innerHTML = enemy.renderCharacterHtml();
 }
 
 const helmi = new Character(characterData.hero);
-const pizzaBoxer = new Character(characterData.enemy);
+let enemy = getNewEnemy()
 
 render();
 
