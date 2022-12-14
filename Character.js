@@ -4,12 +4,14 @@ import {
   renderDiceRolls,
 } from "./utilities.js";
 
-export function Character(data) {
+class Character {
+constructor(data){
   Object.assign(this, data);
 
   this.maxHealth = this.health;
+  this.diceHTML = renderDicePlaceholderHTML(this.diceCount);}
 
-  this.renderHealthBarHTML = () => {
+  renderHealthBarHTML = () => {
     const percent = getHealthPercent(this.maxHealth, this.health);
 
     return `
@@ -20,9 +22,9 @@ export function Character(data) {
         </div>`;  
   };
 
-  this.diceHTML = renderDicePlaceholderHTML(this.diceCount);
+ 
 
-  this.renderDiceHTML = () => {
+  renderDiceHTML = () => {
     this.currentDiceScore = renderDiceRolls(this.diceCount);
 
     this.diceHTML = this.currentDiceScore
@@ -33,7 +35,7 @@ export function Character(data) {
       .join(" ");
   };
 
-  this.calculateDamageTaken = (attackScoreArray) => {
+  calculateDamageTaken = (attackScoreArray) => {
     const damage = attackScoreArray.reduce((total, current) => total + current);
 
     this.health -= damage;
@@ -44,7 +46,7 @@ export function Character(data) {
     }
   };
 
-  this.renderCharacterHtml = () => {
+  renderCharacterHtml = () => {
     const { name, avatar, health, diceHTML } = this;
 
     const healthBar = this.renderHealthBarHTML();
@@ -64,3 +66,5 @@ export function Character(data) {
               </div>`;
   };
 }
+
+export default Character;
