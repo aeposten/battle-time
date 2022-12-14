@@ -2,6 +2,7 @@ import characterData from "./data.js";
 import { Character } from "./Character.js";
 
 let enemyArray = getEnemyArray();
+let paused = false;
 
 function getEnemyArray() {
   const enemies = Object.keys(characterData).slice(1);
@@ -31,29 +32,38 @@ function endGame() {
 
   const endEmoji = helmi.health > 0 ? helmi.emoji : enemy.emoji;
 
-  document.body.innerHTML = `
+  setTimeout(() => {
+    document.body.innerHTML = `
                 <div class="end-game">
                     <h1>Game Over</h2>
                     <h2>${endGameMessage}</h3>
                     <p class="emoji">${endEmoji}</p>
                 </div>`;
+  }, 1500);
 }
 
 function battle() {
-  helmi.renderDiceHTML();
-  enemy.renderDiceHTML();
-  helmi.calculateDamageTaken(enemy.currentDiceScore);
-  enemy.calculateDamageTaken(helmi.currentDiceScore);
-  render();
+  if (!paused) {
+    helmi.renderDiceHTML();
+    enemy.renderDiceHTML();
+    helmi.calculateDamageTaken(enemy.currentDiceScore);
+    enemy.calculateDamageTaken(helmi.currentDiceScore);
+    render();
 
-  if (helmi.knockedOut) {
-    endGame();
-  } else if (enemy.knockedOut) {
-    if (enemyArray.length) {
-      enemy = getNewEnemy();
-      render();
-    } else {
+    if (helmi.knockedOut) {
       endGame();
+      paused = true;
+    } else if (enemy.knockedOut) {
+      paused = true;
+      if (enemyArray.length > 0) {
+        setTimeout(() => {
+          enemy = getNewEnemy();
+          render();
+          paused = false;
+        }, 1500);
+      } else {
+        endGame();
+      }
     }
   }
 }
