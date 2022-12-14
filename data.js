@@ -17,13 +17,21 @@ const characterData = {
     currentDiceScore: [],
   },
   laserTotoro: {
-      name: "Pizza Boxer",
-      avatar: "img/totor-laser.png",
-      health: 45,
-      diceCount: 2,
-      emoji: "🍃",
-      currentDiceScore: [],
-  }
+    name: "Pizza Boxer",
+    avatar: "img/totor-laser.png",
+    health: 45,
+    diceCount: 2,
+    emoji: "🍃",
+    currentDiceScore: [],
+  },
+  workingDad: {
+    name: "Working Dad",
+    avatar: "img/working-dad.png",
+    health: 50,
+    diceCount: 3,
+    emoji: "🖥️",
+    currentDiceScore: [],
+  },
 };
 
 export default characterData;
