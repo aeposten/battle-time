@@ -18,7 +18,7 @@ const characterData = {
   },
   laserTotoro: {
     name: "Pizza Boxer",
-    avatar: "img/totor-laser.png",
+    avatar: "img/totoro-laser.png",
     health: 45,
     diceCount: 2,
     emoji: "🍃",

@@ -4,20 +4,19 @@ import { Character } from "./Character.js";
 let enemyArray = getEnemyArray();
 
 function getEnemyArray() {
-   const enemies = Object.keys(characterData).slice(1);
+  const enemies = Object.keys(characterData).slice(1);
 
-   return enemies;
+  return enemies;
 }
 
-console.log(Object.keys(characterData))
 function getNewEnemy() {
-    const nextEnemyData = characterData[enemyArray.shift()]
+  const nextEnemyData = characterData[enemyArray.shift()];
 
-    if (nextEnemyData) {
-        return new Character(nextEnemyData)
-    } else {
-        return {}
-    }
+  if (nextEnemyData) {
+    return new Character(nextEnemyData);
+  } else {
+    return {};
+  }
 }
 
 document.getElementById("battle-btn").addEventListener("click", battle);
@@ -47,8 +46,15 @@ function battle() {
   enemy.calculateDamageTaken(helmi.currentDiceScore);
   render();
 
-  if (helmi.knockedOut || enemy.knockedOut) {
+  if (helmi.knockedOut) {
     endGame();
+  } else if (enemy.knockedOut) {
+    if (enemyArray.length) {
+      enemy = getNewEnemy();
+      render();
+    } else {
+      endGame();
+    }
   }
 }
 
@@ -60,7 +66,7 @@ function render() {
 }
 
 const helmi = new Character(characterData.hero);
-let enemy = getNewEnemy()
+let enemy = getNewEnemy();
 
 render();
 
