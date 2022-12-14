@@ -1,3 +1,7 @@
+function getHealthPercent(maxHealth, currentHealth) {
+  return (currentHealth * 100) / maxHealth;
+}
+
 function rollD6() {
   return Math.floor(Math.random() * 6 + 1);
 }
@@ -7,8 +11,7 @@ function renderDiceRolls(diceCount) {
 }
 
 function renderDicePlaceholderHTML(diceCount) {
-    return new Array(diceCount).fill(`<div class="dice-heart"></div>`).join('')
+  return new Array(diceCount).fill(`<div class="dice-heart"></div>`).join("");
 }
 
-
-export { renderDiceRolls, renderDicePlaceholderHTML };
+export { getHealthPercent, renderDiceRolls, renderDicePlaceholderHTML };

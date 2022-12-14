@@ -7,6 +7,8 @@ font-family: 'Open Sans', sans-serif;
 
 :root {
   --purple: #33086a;
+  --green: #2ECC40;
+  --red: #FF4136
 }
 
 * {
@@ -60,6 +62,25 @@ body {
   height: 40vw;
   background-size: cover;
   background-position: center;
+}
+
+.health-bar-outer {
+    background-color: var(--purple);
+    height: 1.5vh;
+    width: 70%;
+    margin: 0 5%;
+    border-radius: 2px;
+    color: var(--purple)
+}
+
+.health-bar-outer .health-bar-inner {
+    background-color: var(--green);
+    height: 100%;
+    border-radius: 2px;
+}
+
+.health-bar-outer .health-bar-inner.danger {
+    background-color: var(--red);
 }
 
 .heart-container {

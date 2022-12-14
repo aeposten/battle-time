@@ -1,13 +1,30 @@
-import { renderDicePlaceholderHTML, renderDiceRolls } from "./utilities.js";
+import {
+  getHealthPercent,
+  renderDicePlaceholderHTML,
+  renderDiceRolls,
+} from "./utilities.js";
 
 export function Character(data) {
   Object.assign(this, data);
+
+  this.maxHealth = this.health;
+
+  this.renderHealthBarHTML = () => {
+    const percent = getHealthPercent(this.maxHealth, this.health);
+
+    return `
+        <div class="health-bar-outer">
+            <div class="health-bar-inner ${percent < 26 ? "danger" : ""}" 
+                style="width: ${percent}%;">
+            </div>
+        </div>`;  
+  };
 
   this.diceHTML = renderDicePlaceholderHTML(this.diceCount);
 
   this.renderDiceHTML = () => {
     this.currentDiceScore = renderDiceRolls(this.diceCount);
-    console.log(this.currentDiceScore);
+
     this.diceHTML = this.currentDiceScore
       .map(
         (roll) =>
@@ -18,23 +35,27 @@ export function Character(data) {
 
   this.calculateDamageTaken = (attackScoreArray) => {
     const damage = attackScoreArray.reduce((total, current) => total + current);
-    
+
     this.health -= damage;
 
     if (this.health <= 0) {
-        this.knockedOut = true;
-        this.health = 0;
+      this.knockedOut = true;
+      this.health = 0;
     }
   };
 
   this.renderCharacterHtml = () => {
     const { name, avatar, health, diceHTML } = this;
+
+    const healthBar = this.renderHealthBarHTML();
+
     return `<div class="character-card">
                   <h2 class="name"> ${name} </h2>
                   <div class="img-container">
                       <div class="avatar"  style="background-image: url(${avatar})"></div>
                       <img class="milk" src="./img/milk.png" />
                   </div>
+                  ${healthBar}
                   <div class="health">health: <b> ${health} </b></div>
                   <div class="heart-container">
                     <h3>Damage Dice:</h3>

@@ -8,7 +8,7 @@ const characterData = {
     currentDiceScore: [],
   },
 
-  enemy: {
+  pizzaBoxer: {
     name: "Pizza Boxer",
     avatar: "img/pizza-boxer.png",
     health: 30,
@@ -16,6 +16,14 @@ const characterData = {
     emoji: "🍕",
     currentDiceScore: [],
   },
+  laserTotoro: {
+      name: "Pizza Boxer",
+      avatar: "img/totor-laser.png",
+      health: 45,
+      diceCount: 2,
+      emoji: "🍃",
+      currentDiceScore: [],
+  }
 };
 
 export default characterData;
