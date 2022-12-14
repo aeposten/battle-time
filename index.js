@@ -38,6 +38,7 @@ function endGame() {
                     <h1>Game Over</h2>
                     <h2>${endGameMessage}</h3>
                     <p class="emoji">${endEmoji}</p>
+                    <button onClick="${document.reload()}">New Game</button>
                 </div>`;
   }, 1500);
 }
@@ -46,8 +47,10 @@ function battle() {
   if (!paused) {
     helmi.renderDiceHTML();
     enemy.renderDiceHTML();
+
     helmi.calculateDamageTaken(enemy.currentDiceScore);
     enemy.calculateDamageTaken(helmi.currentDiceScore);
+
     render();
 
     if (helmi.knockedOut) {
@@ -55,10 +58,12 @@ function battle() {
       paused = true;
     } else if (enemy.knockedOut) {
       paused = true;
+
       if (enemyArray.length > 0) {
         setTimeout(() => {
           enemy = getNewEnemy();
           render();
+
           paused = false;
         }, 1500);
       } else {
@@ -69,15 +74,15 @@ function battle() {
 }
 
 function render() {
-  document.getElementById("magical-toddler").innerHTML =
+  document.getElementById("magical-helmi").innerHTML =
     helmi.renderCharacterHtml();
 
   document.getElementById("enemy").innerHTML = enemy.renderCharacterHtml();
 }
 
+
 const helmi = new Character(characterData.hero);
 let enemy = getNewEnemy();
-
 render();
 
 // ⭐  🍕

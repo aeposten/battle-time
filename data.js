@@ -17,7 +17,7 @@ const characterData = {
     currentDiceScore: [],
   },
   laserTotoro: {
-    name: "Pizza Boxer",
+    name: "Totoro",
     avatar: "img/totoro-laser.png",
     health: 45,
     diceCount: 2,

@@ -7,12 +7,18 @@ font-family: 'Open Sans', sans-serif;
 
 :root {
   --purple: #33086a;
-  --green: #2ECC40;
-  --red: #FF4136
+  --green: #2ecc40;
+  --red: #ff4136;
 }
 
 * {
   margin: 0;
+}
+
+div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 h1 {
@@ -20,7 +26,10 @@ h1 {
   font-family: "Nunito", sans-serif;
   font-size: 10vw;
   font-weight: 800;
-  color: hotpink;
+}
+
+.main-title {
+  color: var(--purple);
 }
 
 h2 {
@@ -28,30 +37,45 @@ h2 {
 }
 
 body {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: hotpink;
+  color: hotpink;
+  font-family: "Open Sans", sans-serif;
+}
+
+main {
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.end-game {
+  width: 85%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   background-color: var(--purple);
   color: hotpink;
-  font-family: "Open Sans", sans-serif;
-}
-
-.end-game {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+  border-radius: 4vw;
 }
 
 .character-card {
-  display: flex;
+  width: 85%;
   flex-direction: column;
-  align-items: center;
+  margin-bottom: 5vw;
+  background-color: var(--purple);
+  border-radius: 5vw;
 }
 
 .img-container {
-  display: flex;
   align-items: center;
   margin: 1em;
 }
@@ -65,39 +89,36 @@ body {
 }
 
 .health-bar-outer {
-    background-color: var(--purple);
-    height: 1.5vh;
-    width: 70%;
-    margin: 0 5%;
-    border-radius: 2px;
-    color: var(--purple)
+  justify-content: flex-start;
+  background-color: var(--purple);
+  height: 1.5vh;
+  width: 70%;
+  margin: 0 5%;
+  border-radius: 2px;
+  color: var(--purple);
 }
 
 .health-bar-outer .health-bar-inner {
-    background-color: var(--green);
-    height: 100%;
-    border-radius: 2px;
+  background-color: hotpink;
+  height: 100%;
+  border-radius: 2px;
 }
 
 .health-bar-outer .health-bar-inner.danger {
-    background-color: var(--red);
+  background-color: var(--red);
 }
 
 .heart-container {
-  display: flex;
   flex-direction: column;
-  align-items: center;
 }
 
 .hearts {
   width: 100vw;
-  display: flex;
   justify-content: center;
   margin: 1em 0;
 }
 
 .dice-heart {
-  display: inline-block;
   height: 6vw;
   width: 6vw;
   margin: 3vw 5vw;
@@ -147,17 +168,17 @@ body {
 }
 
 .battle-btn {
-  margin-top: 1em;
-  background-color: hotpink;
+  background-color: var(--purple);
   border: none;
   border-radius: 2em;
   padding: 0.5em 1em;
   font-family: "Nunito", sans-serif;
-  color: var(--purple);
-  font-size: 1rem;
+  color: hotpink;
+  font-size: 3rem;
   font-weight: bold;
+  cursor: pointer;
 }
 
 .emoji {
-    font-size: 12vw;
+  font-size: 12vw;
 }
