@@ -1,5 +1,6 @@
 import characterData from "./data.js";
 import Character from "./Character.js";
+import { renderDicePlaceholderHTML } from "./utilities.js";
 
 let enemyArray = getEnemyArray();
 let paused = false;
@@ -38,8 +39,12 @@ function endGame() {
                     <h1>Game Over</h2>
                     <h2>${endGameMessage}</h3>
                     <p class="emoji">${endEmoji}</p>
-                    <button onClick="${document.reload()}">New Game</button>
+                    <button class="new-game-btn" id="new-game-btn">New Game</button>
                 </div>`;
+    document.getElementById("new-game-btn").addEventListener("click", () => {
+      location.reload();
+      return false;
+    });
   }, 1500);
 }
 
@@ -58,8 +63,8 @@ function battle() {
       paused = true;
     } else if (enemy.knockedOut) {
       paused = true;
-
       if (enemyArray.length > 0) {
+        render();
         setTimeout(() => {
           enemy = getNewEnemy();
           render();
@@ -74,12 +79,17 @@ function battle() {
 }
 
 function render() {
+  if (enemy.knockedOut) {
+    setTimeout(() => {
+      helmi.diceHTML = renderDicePlaceholderHTML(helmi.diceCount);
+    }, 1500);
+  }
+
   document.getElementById("magical-helmi").innerHTML =
     helmi.renderCharacterHtml();
 
   document.getElementById("enemy").innerHTML = enemy.renderCharacterHtml();
 }
-
 
 const helmi = new Character(characterData.hero);
 let enemy = getNewEnemy();

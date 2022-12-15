@@ -67,6 +67,23 @@ main {
   border-radius: 4vw;
 }
 
+.new-game-btn {
+    margin-bottom: 1em;
+    background-color: hotpink;
+    border: none;
+    border-radius: 2em;
+    padding: 0.5em 1em;
+    font-family: "Nunito", sans-serif;
+    color: var(--purple);
+    font-size: 1.5rem;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.enemy {
+    margin-top: 3vw;
+}
+
 .character-card {
   width: 85%;
   flex-direction: column;
@@ -90,7 +107,7 @@ main {
 
 .health-bar-outer {
   justify-content: flex-start;
-  background-color: var(--purple);
+  background-color: hotpink;
   height: 1.5vh;
   width: 70%;
   margin: 0 5%;
@@ -99,13 +116,17 @@ main {
 }
 
 .health-bar-outer .health-bar-inner {
-  background-color: hotpink;
+  background-color: var(--green);
   height: 100%;
   border-radius: 2px;
 }
 
 .health-bar-outer .health-bar-inner.danger {
   background-color: var(--red);
+}
+
+.health-bar-outer .health-bar-inner.danger.green {
+    background-color: var(--green);
 }
 
 .heart-container {
@@ -165,6 +186,60 @@ main {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.star {
+    position: relative;
+    width: 0;
+    height: 0;
+    margin: 3.125em 0;
+    border-right: 6.25em solid transparent;
+    border-bottom: 4.3em solid #33086a;
+    border-left: 6.25em solid transparent;
+    transform: rotate(35deg) scale(0.7);
+    z-index: -1;
+}
+
+.star::before {
+    content: "";
+    position: absolute;
+    display: block;
+    height: 0;
+    width: 0;
+    top: -2.812em;
+    left: -4.062em;
+    border-right: 1.875em solid transparent;
+    border-bottom: 5em solid #33086a;
+    border-left: 2em solid transparent;
+    transform: rotate(-35deg);
+    z-index: -1;
+}
+
+.star::after{
+    content: "";
+    position: absolute;
+    display: block;
+    height: 0;
+    width: 0;
+    top: 0.1875em;
+    left: -6.563em;
+    border-right: 6.25em solid transparent;
+    border-bottom: 4.3em solid #33086a;
+    border-left: 5.95em solid transparent;
+    transform: rotate(-70deg);
+    z-index: -1;
+}
+
+.vs {
+    position: absolute;
+    top: 0.5em;
+    right: -.45em;
+    font-family: 'Nunito', sans-serif;
+    font-weight: bold;
+    text-align: center;
+    color: hotpink;
+    font-size: 2em;
+    transform: rotate(-35deg);
 }
 
 .battle-btn {
