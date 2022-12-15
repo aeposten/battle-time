@@ -249,11 +249,63 @@ main {
   padding: 0.5em 1em;
   font-family: "Nunito", sans-serif;
   color: hotpink;
-  font-size: 3rem;
+  font-size: 10vw;
   font-weight: bold;
   cursor: pointer;
 }
 
 .emoji {
   font-size: 12vw;
+}
+
+@media (min-width: 490px) {
+    main {
+        flex-direction: row;
+    }
+
+    .character-card {
+        width: 40vw;
+    }
+.img-container {
+    margin: 0;
+}
+    .avatar {
+        width: 20vw;
+        height: 20vw;
+    }
+
+    .hearts {
+        width: 40vw;
+    }
+
+    .dice-heart {
+        height: 3vw;
+        width: 3vw;
+        margin: 1.5vw 2.5vw;
+        top: 0;
+        background-color: hotpink;
+        transform: rotate(-45deg);
+      }
+      
+      .dice-heart:before,
+      .dice-heart:after {
+        content: "";
+        position: absolute;
+        border-radius: 50%;
+        width: 3vw;
+        height: 3vw;
+        background-color: hotpink;
+      }
+      
+      .dice-heart:before {
+        top: -1.5vw;
+        left: 0;
+        z-index: -1;
+      }
+      
+      .dice-heart:after {
+        left: 1.5vw;
+        top: 0;
+        z-index: -1;
+      }
 }
