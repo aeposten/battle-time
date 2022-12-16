@@ -24,7 +24,7 @@ div {
 h1 {
   text-align: center;
   font-family: "Nunito", sans-serif;
-  font-size: 10vw;
+  font-size: 8vw;
   font-weight: 800;
 }
 
@@ -33,7 +33,7 @@ h1 {
 }
 
 h2 {
-  font-size: 6vw;
+  font-size: 4vw;
 }
 
 body {
@@ -85,7 +85,7 @@ main {
 }
 
 .character-card {
-  width: 85%;
+  width: 70%;
   flex-direction: column;
   margin-bottom: 5vw;
   background-color: var(--purple);
@@ -93,16 +93,21 @@ main {
 }
 
 .img-container {
+  gap: 3vw;
   align-items: center;
   margin: 1em;
 }
 
 .avatar {
   border-radius: 4vw;
-  width: 40vw;
-  height: 40vw;
+  width: 30vw;
+  height: 30vw;
   background-size: cover;
   background-position: center;
+}
+
+.milk {
+  width: 15vw;
 }
 
 .health-bar-outer {
@@ -136,7 +141,7 @@ main {
 .hearts {
   width: 100vw;
   justify-content: center;
-  margin: 1em 0;
+  margin: 0.5em 0;
 }
 
 .dice-heart {
@@ -192,10 +197,10 @@ main {
   position: relative;
   width: 0;
   height: 0;
-  margin: 7.2vw 1.8vw;
-  border-right: 12vw solid transparent;
-  border-bottom: 9vw solid #33086a;
-  border-left: 12vw solid transparent;
+  margin: 3.6vw 4.5vw;
+  border-right: 6vw solid transparent;
+  border-bottom: 4.5vw solid #33086a;
+  border-left: 6vw solid transparent;
   transform: rotate(35deg);
   z-index: -1;
 }
@@ -206,11 +211,11 @@ main {
   display: block;
   height: 0;
   width: 0;
-  top: -5.6vw;
-  left: -7.2vw;
-  border-right: 2.8vw solid transparent;
-  border-bottom: 8.4vw solid #33086a;
-  border-left: 2.8vw solid transparent;
+  top: -2.8vw;
+  left: -3.6vw;
+  border-right: 1.4vw solid transparent;
+  border-bottom: 4.2vw solid #33086a;
+  border-left: 1.4vw solid transparent;
   transform: rotate(-35deg);
   z-index: -1;
 }
@@ -222,25 +227,25 @@ main {
   height: 0;
   width: 0;
   top: 0;
-  left: -12vw;
-  border-right: 12vw solid transparent;
-  border-bottom: 9vw solid #33086a;
-  border-left: 12vw solid transparent;
+  left: -6vw;
+  border-right: 6vw solid transparent;
+  border-bottom: 4.5vw solid #33086a;
+  border-left: 6vw solid transparent;
   transform: rotate(-70deg);
   z-index: -1;
 }
 
 .vs {
-  width: 21vw;
+  width: 10.5vw;
   position: absolute;
-  top: .5vw;
-  left: -11vw;
+  top: 0.25vw;
+  left: -5.5vw;
   text-align: center;
   font-family: "Nunito", sans-serif;
   font-weight: bold;
   text-align: center;
   color: hotpink;
-  font-size: 6vw;
+  font-size: 3vw;
   transform: rotate(-35deg);
 }
 
@@ -251,7 +256,7 @@ main {
   padding: 0.5em 1em;
   font-family: "Nunito", sans-serif;
   color: hotpink;
-  font-size: 10vw;
+  font-size: 6vw;
   font-weight: bold;
   cursor: pointer;
 }
@@ -260,7 +265,7 @@ main {
   font-size: 12vw;
 }
 
-@media (min-width: 769px) {
+@media (min-width: 767px) {
   main {
     flex-direction: row;
   }
@@ -272,11 +277,13 @@ main {
     font-size: 3vw;
   }
   .img-container {
+    width: 95%;
     margin: 0;
+    gap: 0;
   }
   .avatar {
-    width: 15vw;
-    height: 15vw;
+    width: 12vw;
+    height: 12vw;
   }
 
   .milk {
@@ -323,6 +330,6 @@ main {
   }
 
   .battle-btn {
-    font-size: 5vw;
+    font-size: 3vw;
   }
 }

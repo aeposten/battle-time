@@ -14,4 +14,8 @@ function renderDicePlaceholderHTML(diceCount) {
   return new Array(diceCount).fill(`<div class="dice-heart"></div>`).join("");
 }
 
-export { getHealthPercent, renderDiceRolls, renderDicePlaceholderHTML };
+function usePotion() {
+  console.log("click")
+}
+
+export { getHealthPercent, renderDiceRolls, renderDicePlaceholderHTML, usePotion };

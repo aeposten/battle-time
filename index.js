@@ -1,6 +1,6 @@
 import characterData from "./data.js";
 import Character from "./Character.js";
-import { renderDicePlaceholderHTML } from "./utilities.js";
+import { renderDicePlaceholderHTML, usePotion } from "./utilities.js";
 
 let enemyArray = getEnemyArray();
 let paused = false;
@@ -95,4 +95,5 @@ const helmi = new Character(characterData.hero);
 let enemy = getNewEnemy();
 render();
 
+document.getElementById("milk").addEventListener("click", usePotion);
 // ⭐  🍕

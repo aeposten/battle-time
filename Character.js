@@ -2,14 +2,22 @@ import {
   getHealthPercent,
   renderDicePlaceholderHTML,
   renderDiceRolls,
+  usePotion
 } from "./utilities.js";
 
 class Character {
-constructor(data){
-  Object.assign(this, data);
+  constructor(data) {
+    Object.assign(this, data);
 
-  this.maxHealth = this.health;
-  this.diceHTML = renderDicePlaceholderHTML(this.diceCount);}
+    this.maxHealth = this.health;
+    this.diceHTML = renderDicePlaceholderHTML(this.diceCount);
+    this.potionUsed = false;
+  }
+
+  rendermilkHTML = () => {
+    return `
+    <img class="milk" id ="milk" src="./img/milk.png" onClick="${usePotion}"/>`
+  }
 
   renderHealthBarHTML = () => {
     const percent = getHealthPercent(this.maxHealth, this.health);
@@ -19,10 +27,8 @@ constructor(data){
             <div class="health-bar-inner ${percent < 26 ? "danger" : ""}" 
                 style="width: ${percent}%;">
             </div>
-        </div>`;  
+        </div>`;
   };
-
- 
 
   renderDiceHTML = () => {
     this.currentDiceScore = renderDiceRolls(this.diceCount);
@@ -47,15 +53,16 @@ constructor(data){
   };
 
   renderCharacterHtml = () => {
-    const { name, avatar, health, diceHTML } = this;
+    const { name, avatar, health, diceHTML, rendermilkHTML } = this;
 
     const healthBar = this.renderHealthBarHTML();
+    const milk = this.rendermilkHTML();
 
     return `<div class="character-card">
                   <h2 class="name"> ${name} </h2>
                   <div class="img-container">
                       <div class="avatar"  style="background-image: url(${avatar})"></div>
-                      <img class="milk" src="./img/milk.png" />
+                      ${milk}
                   </div>
                   ${healthBar}
                   <div class="health">health: <b> ${health} </b></div>
@@ -63,7 +70,7 @@ constructor(data){
                     <h3>Damage Dice:</h3>
                     <div class="hearts"> ${diceHTML} </div>
                   </div>
-              </div>`;
+              </div>`
   };
 }
 
