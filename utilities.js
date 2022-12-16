@@ -7,15 +7,11 @@ function rollD6() {
 }
 
 function renderDiceRolls(diceCount) {
-  return new Array(diceCount).fill(0).map((roll) => rollD6());
+  return new Array(diceCount).fill().map((roll) => rollD6());
 }
 
 function renderDicePlaceholderHTML(diceCount) {
   return new Array(diceCount).fill(`<div class="dice-heart"></div>`).join("");
 }
 
-function usePotion() {
-  console.log("click")
-}
-
-export { getHealthPercent, renderDiceRolls, renderDicePlaceholderHTML, usePotion };
+export { getHealthPercent, renderDiceRolls, renderDicePlaceholderHTML};

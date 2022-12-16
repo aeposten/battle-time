@@ -278,8 +278,6 @@ main {
   }
   .img-container {
     width: 95%;
-    margin: 0;
-    gap: 0;
   }
   .avatar {
     width: 12vw;

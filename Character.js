@@ -2,7 +2,6 @@ import {
   getHealthPercent,
   renderDicePlaceholderHTML,
   renderDiceRolls,
-  usePotion
 } from "./utilities.js";
 
 class Character {
@@ -14,10 +13,6 @@ class Character {
     this.potionUsed = false;
   }
 
-  rendermilkHTML = () => {
-    return `
-    <img class="milk" id ="milk" src="./img/milk.png" onClick="${usePotion}"/>`
-  }
 
   renderHealthBarHTML = () => {
     const percent = getHealthPercent(this.maxHealth, this.health);
@@ -53,16 +48,14 @@ class Character {
   };
 
   renderCharacterHtml = () => {
-    const { name, avatar, health, diceHTML, rendermilkHTML } = this;
+    const { name, avatar, health, diceHTML } = this;
 
     const healthBar = this.renderHealthBarHTML();
-    const milk = this.rendermilkHTML();
 
     return `<div class="character-card">
                   <h2 class="name"> ${name} </h2>
                   <div class="img-container">
                       <div class="avatar"  style="background-image: url(${avatar})"></div>
-                      ${milk}
                   </div>
                   ${healthBar}
                   <div class="health">health: <b> ${health} </b></div>
