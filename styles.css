@@ -68,20 +68,20 @@ main {
 }
 
 .new-game-btn {
-    margin-bottom: 1em;
-    background-color: hotpink;
-    border: none;
-    border-radius: 2em;
-    padding: 0.5em 1em;
-    font-family: "Nunito", sans-serif;
-    color: var(--purple);
-    font-size: 1.5rem;
-    font-weight: bold;
-    cursor: pointer;
+  margin-bottom: 1em;
+  background-color: hotpink;
+  border: none;
+  border-radius: 2em;
+  padding: 0.5em 1em;
+  font-family: "Nunito", sans-serif;
+  color: var(--purple);
+  font-size: 1.5rem;
+  font-weight: bold;
+  cursor: pointer;
 }
 
 .enemy {
-    margin-top: 3vw;
+  margin-top: 3vw;
 }
 
 .character-card {
@@ -126,7 +126,7 @@ main {
 }
 
 .health-bar-outer .health-bar-inner.danger.green {
-    background-color: var(--green);
+  background-color: var(--green);
 }
 
 .heart-container {
@@ -189,57 +189,59 @@ main {
 }
 
 .star {
-    position: relative;
-    width: 0;
-    height: 0;
-    margin: 3.125em 0;
-    border-right: 6.25em solid transparent;
-    border-bottom: 4.3em solid #33086a;
-    border-left: 6.25em solid transparent;
-    transform: rotate(35deg) scale(0.7);
-    z-index: -1;
+  position: relative;
+  width: 0;
+  height: 0;
+  margin: 7.2vw 1.8vw;
+  border-right: 12vw solid transparent;
+  border-bottom: 9vw solid #33086a;
+  border-left: 12vw solid transparent;
+  transform: rotate(35deg);
+  z-index: -1;
 }
 
 .star::before {
-    content: "";
-    position: absolute;
-    display: block;
-    height: 0;
-    width: 0;
-    top: -2.812em;
-    left: -4.062em;
-    border-right: 1.875em solid transparent;
-    border-bottom: 5em solid #33086a;
-    border-left: 2em solid transparent;
-    transform: rotate(-35deg);
-    z-index: -1;
+  content: "";
+  position: absolute;
+  display: block;
+  height: 0;
+  width: 0;
+  top: -5.6vw;
+  left: -7.2vw;
+  border-right: 2.8vw solid transparent;
+  border-bottom: 8.4vw solid #33086a;
+  border-left: 2.8vw solid transparent;
+  transform: rotate(-35deg);
+  z-index: -1;
 }
 
-.star::after{
-    content: "";
-    position: absolute;
-    display: block;
-    height: 0;
-    width: 0;
-    top: 0.1875em;
-    left: -6.563em;
-    border-right: 6.25em solid transparent;
-    border-bottom: 4.3em solid #33086a;
-    border-left: 5.95em solid transparent;
-    transform: rotate(-70deg);
-    z-index: -1;
+.star::after {
+  content: "";
+  position: absolute;
+  display: block;
+  height: 0;
+  width: 0;
+  top: 0;
+  left: -12vw;
+  border-right: 12vw solid transparent;
+  border-bottom: 9vw solid #33086a;
+  border-left: 12vw solid transparent;
+  transform: rotate(-70deg);
+  z-index: -1;
 }
 
 .vs {
-    position: absolute;
-    top: 0.5em;
-    right: -.45em;
-    font-family: 'Nunito', sans-serif;
-    font-weight: bold;
-    text-align: center;
-    color: hotpink;
-    font-size: 2em;
-    transform: rotate(-35deg);
+  width: 21vw;
+  position: absolute;
+  top: .5vw;
+  left: -11vw;
+  text-align: center;
+  font-family: "Nunito", sans-serif;
+  font-weight: bold;
+  text-align: center;
+  color: hotpink;
+  font-size: 6vw;
+  transform: rotate(-35deg);
 }
 
 .battle-btn {
@@ -258,54 +260,69 @@ main {
   font-size: 12vw;
 }
 
-@media (min-width: 490px) {
-    main {
-        flex-direction: row;
-    }
+@media (min-width: 769px) {
+  main {
+    flex-direction: row;
+  }
+  .character-card {
+    width: 35vw;
+  }
 
-    .character-card {
-        width: 40vw;
-    }
-.img-container {
+  h2 {
+    font-size: 3vw;
+  }
+  .img-container {
     margin: 0;
-}
-    .avatar {
-        width: 20vw;
-        height: 20vw;
-    }
+  }
+  .avatar {
+    width: 15vw;
+    height: 15vw;
+  }
 
-    .hearts {
-        width: 40vw;
-    }
+  .milk {
+    transform: scale(0.7);
+  }
 
-    .dice-heart {
-        height: 3vw;
-        width: 3vw;
-        margin: 1.5vw 2.5vw;
-        top: 0;
-        background-color: hotpink;
-        transform: rotate(-45deg);
-      }
-      
-      .dice-heart:before,
-      .dice-heart:after {
-        content: "";
-        position: absolute;
-        border-radius: 50%;
-        width: 3vw;
-        height: 3vw;
-        background-color: hotpink;
-      }
-      
-      .dice-heart:before {
-        top: -1.5vw;
-        left: 0;
-        z-index: -1;
-      }
-      
-      .dice-heart:after {
-        left: 1.5vw;
-        top: 0;
-        z-index: -1;
-      }
+  .hearts {
+    width: 30vw;
+  }
+
+  .roll {
+    font-size: 3vw;
+  }
+
+  .dice-heart {
+    height: 3vw;
+    width: 3vw;
+    margin: 1.5vw 2.5vw;
+    top: 0;
+    background-color: hotpink;
+    transform: rotate(-45deg);
+  }
+
+  .dice-heart:before,
+  .dice-heart:after {
+    content: "";
+    position: absolute;
+    border-radius: 50%;
+    width: 3vw;
+    height: 3vw;
+    background-color: hotpink;
+  }
+
+  .dice-heart:before {
+    top: -1.5vw;
+    left: 0;
+    z-index: -1;
+  }
+
+  .dice-heart:after {
+    left: 1.5vw;
+    top: 0;
+    z-index: -1;
+  }
+
+  .battle-btn {
+    font-size: 5vw;
+  }
 }
